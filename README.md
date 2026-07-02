@@ -26,17 +26,6 @@ What is **deliberately not published**, even though it exists and works:
 Nothing in this repository will, by itself, score named players or crawl
 the live Hiscores.
 
-Two framing notes for readers and downstream users:
-
-- The model produces a **statistical risk score**, not an accusation about
-  any individual account. The numbers reported in the technical report are
-  aggregated.
-- This work is **complementary** to detection systems Jagex operates
-  internally: Jagex has access to client telemetry, payment metadata, IP
-  history, and behavioral signals at a scale that no external observer can
-  approach. PanoptOS demonstrates only that *some* signal is recoverable
-  from public Hiscores alone.
-
 ## What's here
 
 ```
