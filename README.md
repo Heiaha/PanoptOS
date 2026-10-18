@@ -38,11 +38,27 @@ panoptos/
     features.py     #   Per-snapshot feature construction
     model.py        #   Dual-branch transformer + name encoder + Platt head
     dataset.py      #   Streaming Parquet IterableDataset
+    horizons.py     #   One-pass per-horizon evaluation (itAUC)
     train.py        #   Training loop with online Welford scaler + Platt fit
 docs/
   report.pdf        # Technical report
   informal.md       # Informal adaptation
+  figures/          # Figures used in informal.md
+requirements.txt    # Training dependencies
 ```
+
+## Setup
+
+Requires Python 3.11 or newer. The discovery simulation uses only the
+standard library; the training code needs the packages in
+`requirements.txt`:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run modules from the repository root, e.g.
+`python -m panoptos.training.train --help`.
 
 ## Quick start: discovery simulation
 
@@ -60,3 +76,7 @@ bandit converges to.
 ## Citation
 
 If you build on this work, please cite the technical report (see `docs/`).
+
+## License
+
+MIT. See [LICENSE](LICENSE).

@@ -1,0 +1,9 @@
+# Training dependencies (Python 3.11+). The discovery simulation needs none.
+# Tested with Python 3.14, torch 2.11, numpy 2.4, polars 1.40,
+# scikit-learn 1.8, torcheval 0.0.7, tqdm 4.67.
+numpy
+polars
+scikit-learn
+torch
+torcheval
+tqdm

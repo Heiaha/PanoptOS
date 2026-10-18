@@ -4,22 +4,13 @@ from typing import NamedTuple
 import torch
 import torch.nn as nn
 
-try:
-    from constants import (
-        ALL_CHARACTERS,
-        ALL_FEATURES,
-        FEATURE_PAD_VALUE,
-        NAME_PAD_VALUE,
-        OVERALL_INDEX,
-    )
-except ImportError:
-    from panoptos.training.constants import (
-        ALL_CHARACTERS,
-        ALL_FEATURES,
-        FEATURE_PAD_VALUE,
-        NAME_PAD_VALUE,
-        OVERALL_INDEX,
-    )
+from panoptos.training.constants import (
+    ALL_CHARACTERS,
+    ALL_FEATURES,
+    FEATURE_PAD_VALUE,
+    NAME_PAD_VALUE,
+    OVERALL_INDEX,
+)
 
 
 @dataclass

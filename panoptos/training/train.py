@@ -3,8 +3,8 @@
 Loads the Parquet dataset built by 01_build_dataset.py, fits a StandardScaler,
 and trains the model with checkpointing on best validation AUPRC.
 
-Usage:
-    python 02_train.py --cache-path ./cache --epochs 20 --batch-size 256 --lr 1e-3
+Usage (from the repository root):
+    python -m panoptos.training.train --cache-path ./cache --epochs 20 --batch-size 256 --lr 1e-3
 """
 
 import argparse
@@ -21,28 +21,16 @@ from torch.utils.data import DataLoader
 from torcheval.metrics import BinaryAUPRC, BinaryAUROC
 from tqdm import tqdm
 
-try:
-    from constants import MIN_SEQUENCE_LENGTH
-    from dataset import PanoptOSDataset
-    from horizons import (
-        DEFAULT_HORIZONS,
-        collect_position_predictions,
-        horizon_selections,
-        integrate_horizon,
-        platt_scale,
-    )
-    from model import ModelOutput, PanoptOSTransformer
-except ImportError:
-    from panoptos.training.constants import MIN_SEQUENCE_LENGTH
-    from panoptos.training.dataset import PanoptOSDataset
-    from panoptos.training.horizons import (
-        DEFAULT_HORIZONS,
-        collect_position_predictions,
-        horizon_selections,
-        integrate_horizon,
-        platt_scale,
-    )
-    from panoptos.training.model import ModelOutput, PanoptOSTransformer
+from panoptos.training.constants import MIN_SEQUENCE_LENGTH
+from panoptos.training.dataset import PanoptOSDataset
+from panoptos.training.horizons import (
+    DEFAULT_HORIZONS,
+    collect_position_predictions,
+    horizon_selections,
+    integrate_horizon,
+    platt_scale,
+)
+from panoptos.training.model import ModelOutput, PanoptOSTransformer
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s %(levelname)-8s %(message)s"

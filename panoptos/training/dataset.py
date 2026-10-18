@@ -10,22 +10,13 @@ import torch
 from torch.nn.utils.rnn import pad_sequence
 from torch.utils.data import IterableDataset
 
-try:
-    from constants import (
-        FEATURE_PAD_VALUE,
-        NAME_PAD_VALUE,
-        RAW_FEATURES,
-        encode,
-    )
-    from features import Computed, PlayerSequence, Skipped
-except ImportError:
-    from panoptos.training.constants import (
-        FEATURE_PAD_VALUE,
-        NAME_PAD_VALUE,
-        RAW_FEATURES,
-        encode,
-    )
-    from panoptos.training.features import Computed, PlayerSequence, Skipped
+from panoptos.training.constants import (
+    FEATURE_PAD_VALUE,
+    NAME_PAD_VALUE,
+    RAW_FEATURES,
+    encode,
+)
+from panoptos.training.features import Computed, PlayerSequence, Skipped
 
 
 class PanoptOSDataset(IterableDataset):

@@ -14,12 +14,8 @@ import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-try:
-    from constants import MIN_SEQUENCE_LENGTH
-    from model import PanoptOSTransformer  # type: ignore[import-not-found]
-except ImportError:
-    from panoptos.training.constants import MIN_SEQUENCE_LENGTH
-    from panoptos.training.model import PanoptOSTransformer
+from panoptos.training.constants import MIN_SEQUENCE_LENGTH
+from panoptos.training.model import PanoptOSTransformer
 
 DEFAULT_HORIZONS = list(range(4, 31))
 

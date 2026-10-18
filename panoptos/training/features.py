@@ -8,32 +8,18 @@ from typing import Any
 
 import numpy as np
 
-try:
-    from constants import (
-        COMBAT_INDICES,
-        GATHERING_INDICES,
-        KC_ACTIVITY_INDICES,
-        MAX_SEQUENCE_LENGTH,
-        MIN_OVERALL_XP,
-        MIN_SEQUENCE_LENGTH,
-        OVERALL_INDEX,
-        RAW_FEATURES,
-        SKILL_INDICES,
-        encode,
-    )
-except ImportError:
-    from panoptos.training.constants import (
-        COMBAT_INDICES,
-        GATHERING_INDICES,
-        KC_ACTIVITY_INDICES,
-        MAX_SEQUENCE_LENGTH,
-        MIN_OVERALL_XP,
-        MIN_SEQUENCE_LENGTH,
-        OVERALL_INDEX,
-        RAW_FEATURES,
-        SKILL_INDICES,
-        encode,
-    )
+from panoptos.training.constants import (
+    COMBAT_INDICES,
+    GATHERING_INDICES,
+    KC_ACTIVITY_INDICES,
+    MAX_SEQUENCE_LENGTH,
+    MIN_OVERALL_XP,
+    MIN_SEQUENCE_LENGTH,
+    OVERALL_INDEX,
+    RAW_FEATURES,
+    SKILL_INDICES,
+    encode,
+)
 
 
 @dataclass

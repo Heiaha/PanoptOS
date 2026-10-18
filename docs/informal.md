@@ -79,7 +79,7 @@ Here, we feed the ~175-number snapshots through a model architecture specificall
 one snapshot, it can also look back at every earlier snapshot in the sequence and decide which of them are worth paying attention to, weighting them by relevance.
 We keep the model purposefully small, because our goal is to run all of this comfortably on a Raspberry Pi.
 
-![The PanoptOS architecture](https://i.imgur.com/B9OEBGx.png)
+![The PanoptOS architecture](figures/architecture.png)
 
 Since the snapshots are not equally spaced in time, the model should treat two snapshots taken three days apart differently from two taken three weeks apart, even if their contents are identical.
 We solve this with a scheme called Fourier time encoding. Each snapshot's "days since the account was first seen" gets turned into a bundle of sines and cosines spanning different characteristic timescales.
@@ -129,7 +129,7 @@ into one number, we summarize the full curve into an integrated time AUC (itAUC)
 It captures how quickly a model becomes useful, which is the property we care about. PanoptOS scores itAUC = 0.985 over days 4 through 30. Two models 
 with identical late-history AUC can have very different itAUC, and it is the figure of merit here that maps to the real problem we are trying to solve.
 
-![PanoptOS performance across observation windows after discovery. The useful signal appears within the first few days of an account's observable life.](https://i.imgur.com/sFI9wY8.png)
+![PanoptOS performance across observation windows after discovery. The useful signal appears within the first few days of an account's observable life.](figures/horizon_evaluation.png)
 
 The benchmark for that number is the closest existing prior work and the only direct precedent: the *Bot Detector* RuneLite plugin, which 
 is an open source, community led project that, like PanoptOS, doesn't require any access to Jagex internal data. 
@@ -145,7 +145,7 @@ The gap is concentrated at short horizons, which, as discussed, is where it matt
 PanoptOS is about three and a half points ahead of the single snapshot reproduction. The gap widens to over six points when measured with the precision focused version of the metric (integrated PR-AUC), which weights exactly the high confidence regime an operator would act on. A snapshot taken late in an account's history carries 
 as much information as a single instant can, but the trajectory closes the rest of the gap, and that gap is largest when there is no late snapshot to fall back on.
 
-![PanoptOS compared with a single snapshot Bot Detector style baseline. The gap is largest when only a few days of history are available.](https://i.imgur.com/6HgHrfi.png)
+![PanoptOS compared with a single snapshot Bot Detector style baseline. The gap is largest when only a few days of history are available.](figures/baseline_comparison.png)
 
 ## A few odds and ends
 Although we train the model on a modern GPU, the deployment target for inference is a Raspberry Pi 5. To make this work, the trained model goes through int8 quantization,
